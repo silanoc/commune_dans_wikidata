@@ -50,5 +50,8 @@ def tous_sur_tous_les_communard():
     #print(df_nettoyage_langue.describe())
     return df_nettoyage_langue
     
-df_tout_sur_tous_communard = (tous_sur_tous_les_communard())
-print(df_tout_sur_tous_communard)
+if __name__ == '__main__':
+    #df_tout_sur_tous_communard = (tous_sur_tous_les_communard())
+    #print(df_tout_sur_tous_communard)
+    pass
+
