@@ -1,5 +1,13 @@
+@font-face {
+	font-family: 'Broadaxe Revolution';
+	src: url("static/Broadaxe Revolution/BroadaxeRevolution.ttf") format("truetype");
+}
+
+
+
 h1, h2, h3, h4, h5, h6 {
     color: red;
+    font-family: 'Broadaxe Revolution', sans-serif;
 }
 
 @page {
