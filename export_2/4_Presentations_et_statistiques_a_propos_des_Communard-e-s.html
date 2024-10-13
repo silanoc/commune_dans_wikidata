@@ -14961,12 +14961,12 @@ referrerpolicy="origin" sandbox="allow-scripts allow-same-origin allow-popups">
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[7]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[8]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># faire un df_genre d'une seule colonne des valeurs sur le genre (P21)</span>
@@ -14978,31 +14978,6 @@ referrerpolicy="origin" sandbox="allow-scripts allow-same-origin allow-popups">
      </div>
 </div>
 </div>
-</div>
-
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[7]:</div>
-
-
-
-
-<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>Series([], Name: qLabel.value, dtype: object)</pre>
-</div>
-
-</div>
-
-</div>
-
 </div>
 
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
@@ -15140,7 +15115,7 @@ referrerpolicy="origin" sandbox="allow-scripts allow-same-origin allow-popups">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[10]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[9]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%HTML</span>
@@ -15302,6 +15277,72 @@ referrerpolicy="origin" sandbox="allow-scripts allow-same-origin allow-popups">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<div class="highlight"><pre><span></span><span class="k">SELECT</span> <span class="nv">?occupation</span> <span class="nv">?occupationLabel</span>  <span class="k">WHERE</span> <span class="p">{</span>
+  <span class="k">SERVICE</span> <span class="nn">wikibase</span><span class="p">:</span><span class="nt">label</span> <span class="p">{</span> <span class="nn">bd</span><span class="p">:</span><span class="nt">serviceParam</span> <span class="nn">wikibase</span><span class="p">:</span><span class="nt">language</span> <span class="s">&quot;[AUTO_LANGUAGE],en&quot;</span><span class="p">.</span> <span class="p">}</span>
+  <span class="nv">?communard_ou_communarde</span> <span class="nn">wdt</span><span class="p">:</span><span class="nt">P106</span> <span class="nn">wd</span><span class="p">:</span><span class="nt">Q1780490</span><span class="p">;</span>
+                           <span class="nn">wdt</span><span class="p">:</span><span class="nt">P106</span> <span class="nv">?occupation</span><span class="p">.</span>
+<span class="p">}</span>
+<span class="k">GROUP BY</span> <span class="nv">?occupation</span> <span class="nv">?occupationLabel</span>
+<span class="k">HAVING</span> <span class="p">((</span><span class="nf">COUNT</span><span class="p">(</span><span class="nv">?communard_ou_communarde</span><span class="p">))</span> <span class="o">=</span> <span class="mi">1</span> <span class="p">)</span>
+<span class="k">order by</span> <span class="nv">?occupationLabel</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[19]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%HTML</span>
+<span class="p">&lt;</span><span class="nt">iframe</span> <span class="na">style</span><span class="o">=</span><span class="s">"width:95%; height: 50vh; border: none;"</span> 
+<span class="na">src</span><span class="o">=</span><span class="s">"https://query.wikidata.org/embed.html#SELECT%20%3Foccupation%20%3FoccupationLabel%20%20WHERE%20%7B%0A%20%20SERVICE%20wikibase%3Alabel%20%7B%20bd%3AserviceParam%20wikibase%3Alanguage%20%22%5BAUTO_LANGUAGE%5D%2Cen%22.%20%7D%0A%20%20%3Fcommunard_ou_communarde%20wdt%3AP106%20wd%3AQ1780490%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20wdt%3AP106%20%3Foccupation.%0A%7D%0AGROUP%20BY%20%3Foccupation%20%3FoccupationLabel%0AHAVING%20((COUNT(%3Fcommunard_ou_communarde))%20%3D%201%20)%0Aorder%20by%20%3FoccupationLabel"</span> 
+<span class="na">referrerpolicy</span><span class="o">=</span><span class="s">"origin"</span> <span class="na">sandbox</span><span class="o">=</span><span class="s">"allow-scripts allow-same-origin allow-popups"</span><span class="p">&gt;&lt;/</span><span class="nt">iframe</span><span class="p">&gt;</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output " data-mime-type="text/html">
+<iframe style="width:95%; height: 50vh; border: none;" 
+src="https://query.wikidata.org/embed.html#SELECT%20%3Foccupation%20%3FoccupationLabel%20%20WHERE%20%7B%0A%20%20SERVICE%20wikibase%3Alabel%20%7B%20bd%3AserviceParam%20wikibase%3Alanguage%20%22%5BAUTO_LANGUAGE%5D%2Cen%22.%20%7D%0A%20%20%3Fcommunard_ou_communarde%20wdt%3AP106%20wd%3AQ1780490%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20wdt%3AP106%20%3Foccupation.%0A%7D%0AGROUP%20BY%20%3Foccupation%20%3FoccupationLabel%0AHAVING%20((COUNT(%3Fcommunard_ou_communarde))%20%3D%201%20)%0Aorder%20by%20%3FoccupationLabel" 
+referrerpolicy="origin" sandbox="allow-scripts allow-same-origin allow-popups"></iframe>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h2 id="Quel-%C3%A2ge-avait-ces-personnes-en-1871-?">Quel &#226;ge avait ces personnes en 1871 ?<a class="anchor-link" href="#Quel-%C3%A2ge-avait-ces-personnes-en-1871-?">&#182;</a></h2>
 </div>
 </div>
@@ -15333,7 +15374,7 @@ referrerpolicy="origin" sandbox="allow-scripts allow-same-origin allow-popups">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[16]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[10]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%HTML</span>
@@ -15415,7 +15456,7 @@ referrerpolicy="origin" sandbox="allow-scripts allow-same-origin allow-popups">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[17]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[11]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%HTML</span>
@@ -15449,6 +15490,406 @@ referrerpolicy="origin" sandbox="allow-scripts allow-same-origin allow-popups">
 src="https://query.wikidata.org/embed.html#SELECT%20%3Fpays_de_citoyennet%C3%A9%20%3Fpays_de_citoyennet%C3%A9Label%20(count(%3Fpays_de_citoyennet%C3%A9)%20as%20%3Fnb)%20WHERE%20%7B%0A%20%20SERVICE%20wikibase%3Alabel%20%7B%20bd%3AserviceParam%20wikibase%3Alanguage%20%22%5BAUTO_LANGUAGE%5D%2Cen%22.%20%7D%0A%20%20%3Fcommunard_ou_communarde%20wdt%3AP106%20wd%3AQ1780490.%0A%20%20OPTIONAL%20%7B%20%3Fcommunard_ou_communarde%20wdt%3AP27%20%3Fpays_de_citoyennet%C3%A9.%20%7D%0A%7D%0A%0Agroup%20by%20%3Fpays_de_citoyennet%C3%A9%20%3Fpays_de_citoyennet%C3%A9Label%0Aorder%20by%20desc(%3Fnb)" 
 referrerpolicy="origin" sandbox="allow-scripts allow-same-origin allow-popups">
 </iframe>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h2 id="Comment-meurt-an-Communarx">Comment meurt an Communarx<a class="anchor-link" href="#Comment-meurt-an-Communarx">&#182;</a></h2>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Pour étudier cette question, à propos des Communards et Communardes dont les informations sont rentrées, nous avons 3 propriétés à utiliser.</p>
+<p>date de mort (P570)</p>
+<blockquote><p>date à laquelle le sujet est mort</p>
+</blockquote>
+<p>cause de la mort (P509)</p>
+<blockquote><p>cause sous-jacente ou immédiate de la mort. La cause sous-jacente (p. ex. accident de voiture, cancer) est préférée. Utiliser « circonstance de la mort » (P1196) pour une description plus large, p. ex. causes naturelles, accidents, homicides, etc.</p>
+</blockquote>
+<p>circonstances de la mort (P1196)</p>
+<blockquote><p>circonstances générales de la mort d'une personne : causes naturelles, accident, suicide, homicide, enquête en cours, ... Utilisez « cause de la mort » (P509) pour des causes plus immédiates comme une attaque cardiaque ou un accident de la route.</p>
+</blockquote>
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Liste de toutes les personnes dont la date de décès est connue, ainsi que la cause ou la circonstance de la mort</p>
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<div class="highlight"><pre><span></span><span class="k">SELECT</span> <span class="nv">?communard_ou_communarde</span> <span class="nv">?communard_ou_communardeLabel</span> <span class="nv">?date_de_mort</span>  <span class="nv">?circonstances_de_la_mort</span> <span class="nv">?circonstances_de_la_mortLabel</span> <span class="nv">?cause_de_la_mort</span> <span class="nv">?cause_de_la_mortLabel</span> <span class="k">WHERE</span> <span class="p">{</span>
+  <span class="k">SERVICE</span> <span class="nn">wikibase</span><span class="p">:</span><span class="nt">label</span> <span class="p">{</span> <span class="nn">bd</span><span class="p">:</span><span class="nt">serviceParam</span> <span class="nn">wikibase</span><span class="p">:</span><span class="nt">language</span> <span class="s">&quot;[AUTO_LANGUAGE],mul,en&quot;</span><span class="p">.</span> <span class="p">}</span>
+  <span class="nv">?communard_ou_communarde</span> <span class="nn">wdt</span><span class="p">:</span><span class="nt">P106</span> <span class="nn">wd</span><span class="p">:</span><span class="nt">Q1780490</span><span class="p">;</span>
+                           <span class="nn">wdt</span><span class="p">:</span><span class="nt">P570</span> <span class="nv">?date_de_mort</span><span class="p">.</span>
+  <span class="k">OPTIONAL</span> <span class="p">{</span> <span class="nv">?communard_ou_communarde</span> <span class="nn">wdt</span><span class="p">:</span><span class="nt">P1196</span> <span class="nv">?circonstances_de_la_mort</span><span class="p">.</span> <span class="p">}</span>
+  <span class="k">OPTIONAL</span> <span class="p">{</span> <span class="nv">?communard_ou_communarde</span> <span class="nn">wdt</span><span class="p">:</span><span class="nt">P509</span> <span class="nv">?cause_de_la_mort</span><span class="p">.</span> <span class="p">}</span>
+  <span class="k">filter</span> <span class="p">((</span><span class="nv">?circonstances_de_la_mort</span> <span class="o">!=</span> <span class="s">&quot;&quot;</span><span class="p">)</span> <span class="o">||</span>  <span class="p">(</span><span class="nv">?cause_de_la_mort</span> <span class="o">!=</span><span class="s">&quot;&quot;</span><span class="p">))</span>
+<span class="p">}</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[8]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%HTML</span>
+<span class="p">&lt;</span><span class="nt">iframe</span> <span class="na">style</span><span class="o">=</span><span class="s">"width: 95%; height: 50vh; border: none;"</span> 
+<span class="na">src</span><span class="o">=</span><span class="s">"https://query.wikidata.org/embed.html#SELECT%20%3Fcommunard_ou_communarde%20%3Fcommunard_ou_communardeLabel%20%3Fdate_de_mort%20%20%3Fcirconstances_de_la_mortLabel%20%3Fcause_de_la_mortLabel%20WHERE%20%7B%0A%20%20SERVICE%20wikibase%3Alabel%20%7B%20bd%3AserviceParam%20wikibase%3Alanguage%20%22%5BAUTO_LANGUAGE%5D%2Cmul%2Cen%22.%20%7D%0A%20%20%3Fcommunard_ou_communarde%20wdt%3AP106%20wd%3AQ1780490%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20wdt%3AP570%20%3Fdate_de_mort.%0A%20%20OPTIONAL%20%7B%20%3Fcommunard_ou_communarde%20wdt%3AP1196%20%3Fcirconstances_de_la_mort.%20%7D%0A%20%20OPTIONAL%20%7B%20%3Fcommunard_ou_communarde%20wdt%3AP509%20%3Fcause_de_la_mort.%20%7D%0A%20%20filter%20((%3Fcirconstances_de_la_mort%20!%3D%20%22%22)%20%7C%7C%20%20(%3Fcause_de_la_mort%20!%3D%22%22))%0A%7D"</span>
+<span class="na">referrerpolicy</span><span class="o">=</span><span class="s">"origin"</span> <span class="na">sandbox</span><span class="o">=</span><span class="s">"allow-scripts allow-same-origin allow-popups"</span><span class="p">&gt;&lt;/</span><span class="nt">iframe</span><span class="p">&gt;</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output " data-mime-type="text/html">
+<iframe style="width: 95%; height: 50vh; border: none;" 
+src="https://query.wikidata.org/embed.html#SELECT%20%3Fcommunard_ou_communarde%20%3Fcommunard_ou_communardeLabel%20%3Fdate_de_mort%20%20%3Fcirconstances_de_la_mortLabel%20%3Fcause_de_la_mortLabel%20WHERE%20%7B%0A%20%20SERVICE%20wikibase%3Alabel%20%7B%20bd%3AserviceParam%20wikibase%3Alanguage%20%22%5BAUTO_LANGUAGE%5D%2Cmul%2Cen%22.%20%7D%0A%20%20%3Fcommunard_ou_communarde%20wdt%3AP106%20wd%3AQ1780490%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20wdt%3AP570%20%3Fdate_de_mort.%0A%20%20OPTIONAL%20%7B%20%3Fcommunard_ou_communarde%20wdt%3AP1196%20%3Fcirconstances_de_la_mort.%20%7D%0A%20%20OPTIONAL%20%7B%20%3Fcommunard_ou_communarde%20wdt%3AP509%20%3Fcause_de_la_mort.%20%7D%0A%20%20filter%20((%3Fcirconstances_de_la_mort%20!%3D%20%22%22)%20%7C%7C%20%20(%3Fcause_de_la_mort%20!%3D%22%22))%0A%7D"
+referrerpolicy="origin" sandbox="allow-scripts allow-same-origin allow-popups"></iframe>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>idem mais en filtrant les morts avant le 29 mai 1871</p>
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<div class="highlight"><pre><span></span><span class="k">SELECT</span> <span class="nv">?communard_ou_communarde</span> <span class="nv">?communard_ou_communardeLabel</span> <span class="nv">?date_de_mort</span>  <span class="nv">?circonstances_de_la_mort</span> <span class="nv">?circonstances_de_la_mortLabel</span> <span class="nv">?cause_de_la_mort</span> <span class="nv">?cause_de_la_mortLabel</span> <span class="k">WHERE</span> <span class="p">{</span>
+  <span class="k">SERVICE</span> <span class="nn">wikibase</span><span class="p">:</span><span class="nt">label</span> <span class="p">{</span> <span class="nn">bd</span><span class="p">:</span><span class="nt">serviceParam</span> <span class="nn">wikibase</span><span class="p">:</span><span class="nt">language</span> <span class="s">&quot;[AUTO_LANGUAGE],mul,en&quot;</span><span class="p">.</span> <span class="p">}</span>
+  <span class="nv">?communard_ou_communarde</span> <span class="nn">wdt</span><span class="p">:</span><span class="nt">P106</span> <span class="nn">wd</span><span class="p">:</span><span class="nt">Q1780490</span><span class="p">;</span>
+                           <span class="nn">wdt</span><span class="p">:</span><span class="nt">P570</span> <span class="nv">?date_de_mort</span><span class="p">.</span>
+  <span class="k">OPTIONAL</span> <span class="p">{</span> <span class="nv">?communard_ou_communarde</span> <span class="nn">wdt</span><span class="p">:</span><span class="nt">P1196</span> <span class="nv">?circonstances_de_la_mort</span><span class="p">.</span> <span class="p">}</span>
+  <span class="k">OPTIONAL</span> <span class="p">{</span> <span class="nv">?communard_ou_communarde</span> <span class="nn">wdt</span><span class="p">:</span><span class="nt">P509</span> <span class="nv">?cause_de_la_mort</span><span class="p">.</span> <span class="p">}</span>
+  <span class="k">filter</span> <span class="p">((</span><span class="nv">?circonstances_de_la_mort</span> <span class="o">!=</span> <span class="s">&quot;&quot;</span><span class="p">)</span> <span class="o">||</span>  <span class="p">(</span><span class="nv">?cause_de_la_mort</span> <span class="o">!=</span><span class="s">&quot;&quot;</span><span class="p">))</span>
+   <span class="k">FILTER</span> <span class="p">(</span><span class="nv">?date_de_mort</span> <span class="o">&lt;</span> <span class="s">&quot;1871-05-29T00:00:00Z&quot;</span><span class="o">^^</span><span class="nn">xsd</span><span class="p">:</span><span class="nt">dateTime</span><span class="p">)</span>
+<span class="p">}</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[10]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%HTML</span>
+<span class="p">&lt;</span><span class="nt">iframe</span> <span class="na">style</span><span class="o">=</span><span class="s">"width: 95%; height: 50vh; border: none;"</span> 
+<span class="na">src</span><span class="o">=</span><span class="s">"https://query.wikidata.org/embed.html#SELECT%20%3Fcommunard_ou_communarde%20%3Fcommunard_ou_communardeLabel%20%3Fdate_de_mort%20%20%3Fcirconstances_de_la_mortLabel%20%3Fcause_de_la_mortLabel%20WHERE%20%7B%0A%20%20SERVICE%20wikibase%3Alabel%20%7B%20bd%3AserviceParam%20wikibase%3Alanguage%20%22%5BAUTO_LANGUAGE%5D%2Cmul%2Cen%22.%20%7D%0A%20%20%3Fcommunard_ou_communarde%20wdt%3AP106%20wd%3AQ1780490%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20wdt%3AP570%20%3Fdate_de_mort.%0A%20%20OPTIONAL%20%7B%20%3Fcommunard_ou_communarde%20wdt%3AP1196%20%3Fcirconstances_de_la_mort.%20%7D%0A%20%20OPTIONAL%20%7B%20%3Fcommunard_ou_communarde%20wdt%3AP509%20%3Fcause_de_la_mort.%20%7D%0A%20%20filter%20((%3Fcirconstances_de_la_mort%20!%3D%20%22%22)%20%7C%7C%20%20(%3Fcause_de_la_mort%20!%3D%22%22))%0A%20%20%20FILTER%20(%3Fdate_de_mort%20%3C%20%221871-05-29T00%3A00%3A00Z%22%5E%5Exsd%3AdateTime)%0A%7D"</span> 
+<span class="na">referrerpolicy</span><span class="o">=</span><span class="s">"origin"</span> <span class="na">sandbox</span><span class="o">=</span><span class="s">"allow-scripts allow-same-origin allow-popups"</span><span class="p">&gt;&lt;/</span><span class="nt">iframe</span><span class="p">&gt;</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output " data-mime-type="text/html">
+<iframe style="width: 95%; height: 50vh; border: none;" 
+src="https://query.wikidata.org/embed.html#SELECT%20%3Fcommunard_ou_communarde%20%3Fcommunard_ou_communardeLabel%20%3Fdate_de_mort%20%20%3Fcirconstances_de_la_mortLabel%20%3Fcause_de_la_mortLabel%20WHERE%20%7B%0A%20%20SERVICE%20wikibase%3Alabel%20%7B%20bd%3AserviceParam%20wikibase%3Alanguage%20%22%5BAUTO_LANGUAGE%5D%2Cmul%2Cen%22.%20%7D%0A%20%20%3Fcommunard_ou_communarde%20wdt%3AP106%20wd%3AQ1780490%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20wdt%3AP570%20%3Fdate_de_mort.%0A%20%20OPTIONAL%20%7B%20%3Fcommunard_ou_communarde%20wdt%3AP1196%20%3Fcirconstances_de_la_mort.%20%7D%0A%20%20OPTIONAL%20%7B%20%3Fcommunard_ou_communarde%20wdt%3AP509%20%3Fcause_de_la_mort.%20%7D%0A%20%20filter%20((%3Fcirconstances_de_la_mort%20!%3D%20%22%22)%20%7C%7C%20%20(%3Fcause_de_la_mort%20!%3D%22%22))%0A%20%20%20FILTER%20(%3Fdate_de_mort%20%3C%20%221871-05-29T00%3A00%3A00Z%22%5E%5Exsd%3AdateTime)%0A%7D" 
+referrerpolicy="origin" sandbox="allow-scripts allow-same-origin allow-popups"></iframe>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Après le 28 mai 1871</p>
+
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[11]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%HTML</span>
+<span class="p">&lt;</span><span class="nt">iframe</span> <span class="na">style</span><span class="o">=</span><span class="s">"width: 95%; height: 50vh; border: none;"</span> 
+<span class="na">src</span><span class="o">=</span><span class="s">"https://query.wikidata.org/embed.html#SELECT%20%3Fcommunard_ou_communarde%20%3Fcommunard_ou_communardeLabel%20%3Fdate_de_mort%20%20%3Fcirconstances_de_la_mortLabel%20%3Fcause_de_la_mortLabel%20WHERE%20%7B%0A%20%20SERVICE%20wikibase%3Alabel%20%7B%20bd%3AserviceParam%20wikibase%3Alanguage%20%22%5BAUTO_LANGUAGE%5D%2Cmul%2Cen%22.%20%7D%0A%20%20%3Fcommunard_ou_communarde%20wdt%3AP106%20wd%3AQ1780490%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20wdt%3AP570%20%3Fdate_de_mort.%0A%20%20OPTIONAL%20%7B%20%3Fcommunard_ou_communarde%20wdt%3AP1196%20%3Fcirconstances_de_la_mort.%20%7D%0A%20%20OPTIONAL%20%7B%20%3Fcommunard_ou_communarde%20wdt%3AP509%20%3Fcause_de_la_mort.%20%7D%0A%20%20filter%20((%3Fcirconstances_de_la_mort%20!%3D%20%22%22)%20%7C%7C%20%20(%3Fcause_de_la_mort%20!%3D%22%22))%0A%20%20%20FILTER%20(%3Fdate_de_mort%20%3E%20%221871-05-28T00%3A00%3A00Z%22%5E%5Exsd%3AdateTime)%0A%7D"</span> 
+<span class="na">referrerpolicy</span><span class="o">=</span><span class="s">"origin"</span> <span class="na">sandbox</span><span class="o">=</span><span class="s">"allow-scripts allow-same-origin allow-popups"</span><span class="p">&gt;&lt;/</span><span class="nt">iframe</span><span class="p">&gt;</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output " data-mime-type="text/html">
+<iframe style="width: 95%; height: 50vh; border: none;" 
+src="https://query.wikidata.org/embed.html#SELECT%20%3Fcommunard_ou_communarde%20%3Fcommunard_ou_communardeLabel%20%3Fdate_de_mort%20%20%3Fcirconstances_de_la_mortLabel%20%3Fcause_de_la_mortLabel%20WHERE%20%7B%0A%20%20SERVICE%20wikibase%3Alabel%20%7B%20bd%3AserviceParam%20wikibase%3Alanguage%20%22%5BAUTO_LANGUAGE%5D%2Cmul%2Cen%22.%20%7D%0A%20%20%3Fcommunard_ou_communarde%20wdt%3AP106%20wd%3AQ1780490%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20wdt%3AP570%20%3Fdate_de_mort.%0A%20%20OPTIONAL%20%7B%20%3Fcommunard_ou_communarde%20wdt%3AP1196%20%3Fcirconstances_de_la_mort.%20%7D%0A%20%20OPTIONAL%20%7B%20%3Fcommunard_ou_communarde%20wdt%3AP509%20%3Fcause_de_la_mort.%20%7D%0A%20%20filter%20((%3Fcirconstances_de_la_mort%20!%3D%20%22%22)%20%7C%7C%20%20(%3Fcause_de_la_mort%20!%3D%22%22))%0A%20%20%20FILTER%20(%3Fdate_de_mort%20%3E%20%221871-05-28T00%3A00%3A00Z%22%5E%5Exsd%3AdateTime)%0A%7D" 
+referrerpolicy="origin" sandbox="allow-scripts allow-same-origin allow-popups"></iframe>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Nombre de personne par circonstance de la mort</p>
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<div class="highlight"><pre><span></span><span class="k">SELECT</span> <span class="nv">?circonstances_de_la_mort</span> <span class="nv">?circonstances_de_la_mortLabel</span> <span class="p">(</span><span class="nf">count</span><span class="p">(</span><span class="nv">?communard_ou_communarde</span><span class="p">)</span> <span class="k">as</span> <span class="nv">?nombre</span><span class="p">)</span> <span class="k">WHERE</span> <span class="p">{</span>
+  <span class="k">SERVICE</span> <span class="nn">wikibase</span><span class="p">:</span><span class="nt">label</span> <span class="p">{</span> <span class="nn">bd</span><span class="p">:</span><span class="nt">serviceParam</span> <span class="nn">wikibase</span><span class="p">:</span><span class="nt">language</span> <span class="s">&quot;[AUTO_LANGUAGE],mul,en&quot;</span><span class="p">.</span> <span class="p">}</span>
+  <span class="nv">?communard_ou_communarde</span> <span class="nn">wdt</span><span class="p">:</span><span class="nt">P106</span> <span class="nn">wd</span><span class="p">:</span><span class="nt">Q1780490</span><span class="p">;</span>
+                           <span class="nn">wdt</span><span class="p">:</span><span class="nt">P1196</span> <span class="nv">?circonstances_de_la_mort</span><span class="p">.}</span>
+<span class="k">group by</span> <span class="nv">?circonstances_de_la_mort</span> <span class="nv">?circonstances_de_la_mortLabel</span>
+<span class="k">order by</span> <span class="k">desc</span><span class="p">(</span><span class="nv">?nombre</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[14]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%HTML</span>
+<span class="p">&lt;</span><span class="nt">iframe</span> <span class="na">style</span><span class="o">=</span><span class="s">"width: 95%; height: 50vh; border: none;"</span> 
+<span class="na">src</span><span class="o">=</span><span class="s">"https://query.wikidata.org/embed.html#SELECT%20%3Fcirconstances_de_la_mort%20%3Fcirconstances_de_la_mortLabel%20(count(%3Fcommunard_ou_communarde)%20as%20%3Fnombre)%20WHERE%20%7B%0A%20%20SERVICE%20wikibase%3Alabel%20%7B%20bd%3AserviceParam%20wikibase%3Alanguage%20%22%5BAUTO_LANGUAGE%5D%2Cmul%2Cen%22.%20%7D%0A%20%20%3Fcommunard_ou_communarde%20wdt%3AP106%20wd%3AQ1780490%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20wdt%3AP1196%20%3Fcirconstances_de_la_mort.%7D%0Agroup%20by%20%3Fcirconstances_de_la_mort%20%3Fcirconstances_de_la_mortLabel%0Aorder%20by%20desc(%3Fnombre)%0A"</span> 
+<span class="na">referrerpolicy</span><span class="o">=</span><span class="s">"origin"</span> <span class="na">sandbox</span><span class="o">=</span><span class="s">"allow-scripts allow-same-origin allow-popups"</span><span class="p">&gt;&lt;/</span><span class="nt">iframe</span><span class="p">&gt;</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output " data-mime-type="text/html">
+<iframe style="width: 95%; height: 50vh; border: none;" 
+src="https://query.wikidata.org/embed.html#SELECT%20%3Fcirconstances_de_la_mort%20%3Fcirconstances_de_la_mortLabel%20(count(%3Fcommunard_ou_communarde)%20as%20%3Fnombre)%20WHERE%20%7B%0A%20%20SERVICE%20wikibase%3Alabel%20%7B%20bd%3AserviceParam%20wikibase%3Alanguage%20%22%5BAUTO_LANGUAGE%5D%2Cmul%2Cen%22.%20%7D%0A%20%20%3Fcommunard_ou_communarde%20wdt%3AP106%20wd%3AQ1780490%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20wdt%3AP1196%20%3Fcirconstances_de_la_mort.%7D%0Agroup%20by%20%3Fcirconstances_de_la_mort%20%3Fcirconstances_de_la_mortLabel%0Aorder%20by%20desc(%3Fnombre)%0A" 
+referrerpolicy="origin" sandbox="allow-scripts allow-same-origin allow-popups"></iframe>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Nombre par cause de la mort</p>
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<div class="highlight"><pre><span></span><span class="k">SELECT</span> <span class="nv">?cause_de_la_mort</span> <span class="nv">?cause_de_la_mortLabel</span> <span class="p">(</span><span class="nf">count</span><span class="p">(</span><span class="nv">?communard_ou_communarde</span><span class="p">)</span> <span class="k">as</span> <span class="nv">?nombre</span><span class="p">)</span> <span class="k">WHERE</span> <span class="p">{</span>
+  <span class="k">SERVICE</span> <span class="nn">wikibase</span><span class="p">:</span><span class="nt">label</span> <span class="p">{</span> <span class="nn">bd</span><span class="p">:</span><span class="nt">serviceParam</span> <span class="nn">wikibase</span><span class="p">:</span><span class="nt">language</span> <span class="s">&quot;[AUTO_LANGUAGE],mul,en&quot;</span><span class="p">.</span> <span class="p">}</span>
+  <span class="nv">?communard_ou_communarde</span> <span class="nn">wdt</span><span class="p">:</span><span class="nt">P106</span> <span class="nn">wd</span><span class="p">:</span><span class="nt">Q1780490</span><span class="p">;</span>
+                           <span class="nn">wdt</span><span class="p">:</span><span class="nt">P509</span> <span class="nv">?cause_de_la_mort</span><span class="p">.</span> 
+<span class="p">}</span>
+<span class="k">group by</span> <span class="nv">?cause_de_la_mort</span> <span class="nv">?cause_de_la_mortLabel</span> 
+<span class="k">order by</span> <span class="k">desc</span><span class="p">(</span><span class="nv">?nombre</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[16]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%HTML</span>
+<span class="p">&lt;</span><span class="nt">iframe</span> <span class="na">style</span><span class="o">=</span><span class="s">"width: 95%; height: 50vh; border: none;"</span> 
+<span class="na">src</span><span class="o">=</span><span class="s">"https://query.wikidata.org/embed.html#SELECT%20%3Fcause_de_la_mort%20%3Fcause_de_la_mortLabel%20(count(%3Fcommunard_ou_communarde)%20as%20%3Fnombre)%20WHERE%20%7B%0A%20%20SERVICE%20wikibase%3Alabel%20%7B%20bd%3AserviceParam%20wikibase%3Alanguage%20%22%5BAUTO_LANGUAGE%5D%2Cmul%2Cen%22.%20%7D%0A%20%20%3Fcommunard_ou_communarde%20wdt%3AP106%20wd%3AQ1780490%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20wdt%3AP509%20%3Fcause_de_la_mort.%20%0A%7D%0Agroup%20by%20%3Fcause_de_la_mort%20%3Fcause_de_la_mortLabel%20%0Aorder%20by%20desc(%3Fnombre)%0A"</span> 
+<span class="na">referrerpolicy</span><span class="o">=</span><span class="s">"origin"</span> <span class="na">sandbox</span><span class="o">=</span><span class="s">"allow-scripts allow-same-origin allow-popups"</span><span class="p">&gt;&lt;/</span><span class="nt">iframe</span><span class="p">&gt;</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output " data-mime-type="text/html">
+<iframe style="width: 95%; height: 50vh; border: none;" 
+src="https://query.wikidata.org/embed.html#SELECT%20%3Fcause_de_la_mort%20%3Fcause_de_la_mortLabel%20(count(%3Fcommunard_ou_communarde)%20as%20%3Fnombre)%20WHERE%20%7B%0A%20%20SERVICE%20wikibase%3Alabel%20%7B%20bd%3AserviceParam%20wikibase%3Alanguage%20%22%5BAUTO_LANGUAGE%5D%2Cmul%2Cen%22.%20%7D%0A%20%20%3Fcommunard_ou_communarde%20wdt%3AP106%20wd%3AQ1780490%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20wdt%3AP509%20%3Fcause_de_la_mort.%20%0A%7D%0Agroup%20by%20%3Fcause_de_la_mort%20%3Fcause_de_la_mortLabel%20%0Aorder%20by%20desc(%3Fnombre)%0A" 
+referrerpolicy="origin" sandbox="allow-scripts allow-same-origin allow-popups"></iframe>
 
 </div>
 
@@ -15513,7 +15954,7 @@ referrerpolicy="origin" sandbox="allow-scripts allow-same-origin allow-popups">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[19]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[12]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%HTML</span>
@@ -15590,7 +16031,7 @@ referrerpolicy="origin" sandbox="allow-scripts allow-same-origin allow-popups">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[20]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[13]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%HTML</span>
@@ -15669,7 +16110,7 @@ referrerpolicy="origin" sandbox="allow-scripts allow-same-origin allow-popups">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[21]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[14]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%HTML</span>
@@ -15775,7 +16216,7 @@ referrerpolicy="origin" sandbox="allow-scripts allow-same-origin allow-popups">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[22]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[15]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%HTML</span>
@@ -15854,7 +16295,7 @@ referrerpolicy="origin" sandbox="allow-scripts allow-same-origin allow-popups">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[23]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[16]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%HTML</span>
@@ -15938,7 +16379,7 @@ referrerpolicy="origin" sandbox="allow-scripts allow-same-origin allow-popups">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[24]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[17]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%HTML</span>
@@ -16043,7 +16484,7 @@ referrerpolicy="origin" sandbox="allow-scripts allow-same-origin allow-popups">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[25]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[18]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%HTML</span>
@@ -16123,7 +16564,7 @@ referrerpolicy="origin" sandbox="allow-scripts allow-same-origin allow-popups">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[26]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[19]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%HTML</span>
