@@ -26,8 +26,6 @@ def une_page_dans_la_liste(une_liste):
 	print(url)
 	print("firefox " + url)
 
-les_articles_du_maitron = faire_liste()
-une_page_dans_la_liste(les_articles_du_maitron)
-
 if __name__ == "__main__()":
-	pass
+	les_articles_du_maitron = faire_liste()
+	une_page_dans_la_liste(les_articles_du_maitron)
