@@ -14578,38 +14578,17 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h1 id="La-Commune-de-Paris-1871-en-libert%C3%A9----Les-communardes-et-communards-dans-des-cimeti%C3%A8res">La Commune de Paris 1871 en libert&#233; -  Les communardes et communards dans des cimeti&#232;res<a class="anchor-link" href="#La-Commune-de-Paris-1871-en-libert%C3%A9----Les-communardes-et-communards-dans-des-cimeti%C3%A8res">&#182;</a></h1>
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[9]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">extraction_wd</span> <span class="kn">import</span> <span class="o">*</span>
-<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">HTML</span>
-
-<span class="n">endpoint_url</span><span class="p">:</span><span class="nb">str</span> <span class="o">=</span> <span class="s2">"https://query.wikidata.org/sparql"</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
 </div>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h2 id="G%C3%A9n%C3%A9ralit%C3%A9s">G&#233;n&#233;ralit&#233;s<a class="anchor-link" href="#G%C3%A9n%C3%A9ralit%C3%A9s">&#182;</a></h2><p>Les communard·e·s étant touz* décédæ, c'est notamment dans les cimetières, quand les tombes existent, qu'on peut leur rendre hommage. N'oublions pas que beaucoup sont dans des fossés communes anonymes.</p>
 <p>En termes de méthode wikidata nous propose la propriété <em>lieu de sépulture</em> (P119). Selon les précisions cela peut être une ville ou un cimetière. Cet élément possède une propriété <em>coordonnées géographiques</em> (P625).</p>
 <p>Pour certaines personnes, la propriété photo de la sépulture est rempli avec une photo de communs.
@@ -14630,9 +14609,8 @@ lieu où le corps du sujet est conservé</p>
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="Nombre-de-personne-par-cimeti%C3%A8re">Nombre de personne par cimeti&#232;re<a class="anchor-link" href="#Nombre-de-personne-par-cimeti%C3%A8re">&#182;</a></h2><p>Pour chaque communard·e·s cherche le lieu de sépulture et les coorodonnées de celle-ci. Compte le nombre de personnes par lieux.</p>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h2 id="Nombre-de-personne-par-cimeti%C3%A8re">Nombre de personne par cimeti&#232;re<a class="anchor-link" href="#Nombre-de-personne-par-cimeti%C3%A8re">&#182;</a></h2><p>Pour chaque communard·e·s cherche le lieu de sépulture et les coorodonnées de celles-ci. Compte le nombre de personnes par lieux.</p>
 
 </div>
 </div>
@@ -14642,8 +14620,7 @@ lieu où le corps du sujet est conservé</p>
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <div class="highlight"><pre><span></span><span class="k">SELECT</span> <span class="nv">?lieu_de_sépulture</span> <span class="nv">?lieu_de_sépultureLabel</span> <span class="nv">?coordonnees</span> <span class="p">(</span><span class="nf">COUNT</span><span class="p">(</span><span class="o">*</span><span class="p">)</span> <span class="k">AS</span> <span class="nv">?count</span><span class="p">)</span> <span class="k">WHERE</span> <span class="p">{</span>
   <span class="k">SERVICE</span> <span class="nn">wikibase</span><span class="p">:</span><span class="nt">label</span> <span class="p">{</span> <span class="nn">bd</span><span class="p">:</span><span class="nt">serviceParam</span> <span class="nn">wikibase</span><span class="p">:</span><span class="nt">language</span> <span class="s">&quot;fr&quot;</span><span class="p">.</span> <span class="p">}</span>
  <span class="nv">?communard_ou_communarde</span> <span class="nn">wdt</span><span class="p">:</span><span class="nt">P106</span> <span class="nn">wd</span><span class="p">:</span><span class="nt">Q1780490</span><span class="p">;</span>
@@ -14664,232 +14641,118 @@ lieu où le corps du sujet est conservé</p>
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h3 id="En-python">En python<a class="anchor-link" href="#En-python">&#182;</a></h3>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput  celltag_sparql" data-mime-type="text/markdown">
+<h3 id="En-sparql">En sparql<a class="anchor-link" href="#En-sparql">&#182;</a></h3>
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[6]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">query</span> <span class="o">=</span> <span class="s2">"""SELECT ?lieu_de_sépulture ?lieu_de_sépultureLabel ?coordonnees (COUNT(*) AS ?count) WHERE {</span>
-<span class="s2">  SERVICE wikibase:label { bd:serviceParam wikibase:language "fr". }</span>
-<span class="s2"> ?communard_ou_communarde wdt:P106 wd:Q1780490;</span>
-<span class="s2">                           wdt:P119 ?lieu_de_sépulture.</span>
-<span class="s2"> ?lieu_de_sépulture wdt:P31/wdt:P279* wd:Q39614;</span>
-<span class="s2">                    wdt:P625 ?coordonnees.</span>
-<span class="s2">}</span>
-
-<span class="s2">group by ?lieu_de_sépulture ?lieu_de_sépultureLabel ?coordonnees</span>
-<span class="s2">order by desc (?count)</span>
-<span class="s2">"""</span>
-<span class="n">extraction_lieu_sepulture</span> <span class="o">=</span> <span class="n">Extraction_wikidata</span><span class="p">(</span><span class="n">endpoint_url</span><span class="p">,</span> <span class="n">query</span><span class="p">)</span>
-<span class="n">df_lieu_sepulture</span> <span class="o">=</span> <span class="n">extraction_lieu_sepulture</span><span class="o">.</span><span class="n">extraire_et_df</span><span class="p">()</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[10]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df_lieu_sepulture</span> <span class="o">=</span> <span class="n">df_lieu_sepulture</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,[</span><span class="s1">'lieu_de_sépulture.value'</span><span class="p">,</span> <span class="s1">'lieu_de_sépultureLabel.value'</span><span class="p">,</span> <span class="s1">'count.value'</span><span class="p">,</span> <span class="s1">'coordonnees.value'</span><span class="p">]]</span>
-<span class="n">HTML</span><span class="p">(</span><span class="n">df_lieu_sepulture</span><span class="o">.</span><span class="n">to_html</span><span class="p">())</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell  jp-mod-noInput  celltag_sparql">
 
 <div class="jp-Cell-outputWrapper">
 <div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
 </div>
 
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output " data-mime-type="text/html">
+<iframe style="width: 95%; height: 50vh; border: none;" 
+src="https://query.wikidata.org/embed.html#SELECT%20%3Flieu_de_s%C3%A9pulture%20%3Flieu_de_s%C3%A9pultureLabel%20%3Fcoordonnees%20(COUNT(*)%20AS%20%3Fcount)%20WHERE%20%7B%0A%20%20SERVICE%20wikibase%3Alabel%20%7B%20bd%3AserviceParam%20wikibase%3Alanguage%20%22%5BAUTO_LANGUAGE%5D%2Cen%22.%20%7D%0A%20%3Fcommunard_ou_communarde%20wdt%3AP106%20wd%3AQ1780490%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20wdt%3AP119%20%3Flieu_de_s%C3%A9pulture.%0A%20%3Flieu_de_s%C3%A9pulture%20wdt%3AP31%2Fwdt%3AP279*%20wd%3AQ39614%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20wdt%3AP625%20%3Fcoordonnees.%0A%7D%0A%0Agroup%20by%20%3Flieu_de_s%C3%A9pulture%20%3Flieu_de_s%C3%A9pultureLabel%20%3Fcoordonnees%0Aorder%20by%20desc%20(%3Fcount)" 
+referrerpolicy="origin" sandbox="allow-scripts allow-same-origin allow-popups">
+</iframe>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput  celltag_sparql" data-mime-type="text/markdown">
+<p>On peut afficher la carte avec la localisation des différents lieux</p>
+
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs jp-mod-noInput ">
+
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput  celltag_sparql" data-mime-type="text/markdown">
+<h2 id="Cimeti%C3%A8re-du-Montparnasse">Cimeti&#232;re du Montparnasse<a class="anchor-link" href="#Cimeti%C3%A8re-du-Montparnasse">&#182;</a></h2><p>Cartes des tombes de communard·e·s ou de personnes ayant un lien avec la Commune dans le cimetière du Montparnasse (Q272208).</p>
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput  celltag_sparql" data-mime-type="text/markdown">
+<div class="highlight"><pre><span></span><span class="c">#defaultView:Map</span>
+<span class="k">SELECT</span> <span class="k">Distinct</span> <span class="nv">?tombe</span> <span class="nv">?tombeLabel</span> <span class="nv">?image_Tombe</span> <span class="nv">?coordonnées</span> <span class="nv">?tombe_deLabel</span> <span class="nv">?image_personne</span> <span class="k">WHERE</span> <span class="p">{</span>
+  <span class="k">SERVICE</span> <span class="nn">wikibase</span><span class="p">:</span><span class="nt">label</span> <span class="p">{</span> <span class="nn">bd</span><span class="p">:</span><span class="nt">serviceParam</span> <span class="nn">wikibase</span><span class="p">:</span><span class="nt">language</span> <span class="s">&quot;[AUTO_LANGUAGE],en&quot;</span><span class="p">.</span> <span class="p">}</span>
+
+  <span class="c">#Qui, les communard-e-s et la liste des personnes lors de la cérémonie</span>
+  <span class="nv">?communard</span> <span class="nn">wdt</span><span class="p">:</span><span class="nt">P106</span> <span class="nn">wd</span><span class="p">:</span><span class="nt">Q1780490</span><span class="p">;</span>
+             <span class="nn">wdt</span><span class="p">:</span><span class="nt">P119</span> <span class="nn">wd</span><span class="p">:</span><span class="nt">Q272208</span><span class="p">.</span>
+  <span class="k">Values</span> <span class="nv">?personnalite</span> <span class="p">{</span><span class="nn">wd</span><span class="p">:</span><span class="nt">Q313709</span> 
+                        <span class="nn">wd</span><span class="p">:</span><span class="nt">Q61897268</span> 
+                        <span class="nn">wd</span><span class="p">:</span><span class="nt">Q5749</span>
+                        <span class="nn">wd</span><span class="p">:</span><span class="nt">Q1959369</span>
+                        <span class="nn">wd</span><span class="p">:</span><span class="nt">Q3047711</span>
+                        <span class="nn">wd</span><span class="p">:</span><span class="nt">Q3022660</span>
+                        <span class="nn">wd</span><span class="p">:</span><span class="nt">Q551648</span>
+                        <span class="nn">wd</span><span class="p">:</span><span class="nt">Q704649</span>
+                        <span class="nn">wd</span><span class="p">:</span><span class="nt">Q2826417</span>
+                        <span class="nn">wd</span><span class="p">:</span><span class="nt">Q3302715</span>
+                        <span class="nn">wd</span><span class="p">:</span><span class="nt">Q337628</span><span class="p">}</span>
+  <span class="c">#Chercher les tombes du cimetière montparnasse                      </span>
+  <span class="nv">?tombe</span> <span class="nn">wdt</span><span class="p">:</span><span class="nt">P361</span> <span class="nn">wd</span><span class="p">:</span><span class="nt">Q272208</span><span class="p">;</span>
+         <span class="nn">wdt</span><span class="p">:</span><span class="nt">P547</span> <span class="nv">?tombe_de</span><span class="p">.</span>        
+  <span class="c">#Prendre les tombes voulues</span>
+  <span class="k">filter</span> <span class="p">(</span><span class="nv">?tombe_de</span> <span class="o">=</span><span class="nv">?communard</span> <span class="o">||</span> <span class="nv">?tombe_de</span><span class="o">=</span><span class="nv">?personnalite</span><span class="p">)</span>
+
+  <span class="k">OPTIONAL</span> <span class="p">{</span><span class="nv">?tombe</span> <span class="nn">wdt</span><span class="p">:</span><span class="nt">P18</span> <span class="nv">?image_Tombe</span><span class="p">.}</span>
+  <span class="k">OPTIONAL</span> <span class="p">{</span><span class="nv">?tombe</span> <span class="nn">wdt</span><span class="p">:</span><span class="nt">P625</span> <span class="nv">?coordonnées</span><span class="p">.}</span>
+  <span class="k">OPTIONAL</span> <span class="p">{</span><span class="nv">?tombe_de</span> <span class="nn">wdt</span><span class="p">:</span><span class="nt">P18</span> <span class="nv">?image_personne</span><span class="p">.}</span>
+
+<span class="p">}</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell  jp-mod-noInput  celltag_sparql">
+
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
 
 <div class="jp-OutputArea jp-Cell-outputArea">
 
 <div class="jp-OutputArea-child">
 
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[10]:</div>
 
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output " data-mime-type="text/html">
+<iframe style="width: 95%; height: 75vh; border: none;" 
+src="https://query.wikidata.org/embed.html#%23defaultView%3AMap%0ASELECT%20Distinct%20%3Ftombe%20%3FtombeLabel%20%3Fimage_Tombe%20%3Fcoordonn%C3%A9es%20%3Ftombe_deLabel%20%3Fimage_personne%20WHERE%20%7B%0A%20%20SERVICE%20wikibase%3Alabel%20%7B%20bd%3AserviceParam%20wikibase%3Alanguage%20%22%5BAUTO_LANGUAGE%5D%2Cen%22.%20%7D%0A%20%20%0A%20%20%23Qui%2C%20les%20communard-e-s%20et%20la%20liste%20des%20personnes%20lors%20de%20la%20c%C3%A9r%C3%A9monie%0A%20%20%3Fcommunard%20wdt%3AP106%20wd%3AQ1780490%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20wdt%3AP119%20wd%3AQ272208.%0A%20%20Values%20%3Fpersonnalite%20%7Bwd%3AQ313709%20%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20wd%3AQ61897268%20%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20wd%3AQ5749%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20wd%3AQ1959369%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20wd%3AQ3047711%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20wd%3AQ3022660%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20wd%3AQ551648%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20wd%3AQ704649%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20wd%3AQ2826417%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20wd%3AQ3302715%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20wd%3AQ337628%7D%0A%20%20%23Chercher%20les%20tombes%20du%20cimeti%C3%A8re%20montparnasse%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%0A%20%20%3Ftombe%20wdt%3AP361%20wd%3AQ272208%3B%0A%20%20%20%20%20%20%20%20%20wdt%3AP547%20%3Ftombe_de.%20%20%20%20%20%20%20%20%0A%20%20%23Prendre%20les%20tombes%20voulues%0A%20%20filter%20(%3Ftombe_de%20%3D%3Fcommunard%20%7C%7C%20%3Ftombe_de%3D%3Fpersonnalite)%0A%20%20%0A%20%20OPTIONAL%20%7B%3Ftombe%20wdt%3AP18%20%3Fimage_Tombe.%7D%0A%20%20OPTIONAL%20%7B%3Ftombe%20wdt%3AP625%20%3Fcoordonn%C3%A9es.%7D%0A%20%20OPTIONAL%20%7B%3Ftombe_de%20wdt%3AP18%20%3Fimage_personne.%7D%0A%20%20%0A%7D" 
+referrerpolicy="origin" 
+sandbox="allow-scripts allow-same-origin allow-popups">
+</iframe>
 
-
-<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html">
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>lieu_de_sépulture.value</th>
-      <th>lieu_de_sépultureLabel.value</th>
-      <th>count.value</th>
-      <th>coordonnees.value</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>http://www.wikidata.org/entity/Q311</td>
-      <td>cimetière du Père-Lachaise</td>
-      <td>41</td>
-      <td>Point(2.394166666 48.861944444)</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>http://www.wikidata.org/entity/Q110481596</td>
-      <td>cimetière des condamnés</td>
-      <td>8</td>
-      <td>Point(167.443563 -22.636549)</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>http://www.wikidata.org/entity/Q272208</td>
-      <td>cimetière du Montparnasse</td>
-      <td>7</td>
-      <td>Point(2.32833 48.83778)</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>http://www.wikidata.org/entity/Q746647</td>
-      <td>cimetière de Montmartre</td>
-      <td>2</td>
-      <td>Point(2.330277777 48.887777777)</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>http://www.wikidata.org/entity/Q2972508</td>
-      <td>cimetière d'Auteuil</td>
-      <td>2</td>
-      <td>Point(2.25944 48.8411)</td>
-    </tr>
-    <tr>
-      <th>5</th>
-      <td>http://www.wikidata.org/entity/Q437930</td>
-      <td>cimetière ancien de Neuilly-sur-Seine</td>
-      <td>1</td>
-      <td>Point(2.264444444 48.881666666)</td>
-    </tr>
-    <tr>
-      <th>6</th>
-      <td>http://www.wikidata.org/entity/Q781858</td>
-      <td>cimetière de Charonne</td>
-      <td>1</td>
-      <td>Point(2.40347 48.8609)</td>
-    </tr>
-    <tr>
-      <th>7</th>
-      <td>http://www.wikidata.org/entity/Q779367</td>
-      <td>cimetière d'Ixelles</td>
-      <td>1</td>
-      <td>Point(4.392778 50.815556)</td>
-    </tr>
-    <tr>
-      <th>8</th>
-      <td>http://www.wikidata.org/entity/Q252312</td>
-      <td>cimetière du Nord de Solna</td>
-      <td>1</td>
-      <td>Point(18.019166666 59.356666666)</td>
-    </tr>
-    <tr>
-      <th>9</th>
-      <td>http://www.wikidata.org/entity/Q288130</td>
-      <td>cimetière national de Fiumei út</td>
-      <td>1</td>
-      <td>Point(19.090586111 47.495769444)</td>
-    </tr>
-    <tr>
-      <th>10</th>
-      <td>http://www.wikidata.org/entity/Q2972531</td>
-      <td>cimetière de Levallois-Perret</td>
-      <td>1</td>
-      <td>Point(2.289 48.9)</td>
-    </tr>
-    <tr>
-      <th>11</th>
-      <td>http://www.wikidata.org/entity/Q16537155</td>
-      <td>Ancien cimetière catholique romain de Stanisławów</td>
-      <td>1</td>
-      <td>Point(24.7166 48.9168)</td>
-    </tr>
-    <tr>
-      <th>12</th>
-      <td>http://www.wikidata.org/entity/Q16652861</td>
-      <td>cimetière de Zaeltsovskoye</td>
-      <td>1</td>
-      <td>Point(82.880833333 55.097222222)</td>
-    </tr>
-    <tr>
-      <th>13</th>
-      <td>http://www.wikidata.org/entity/Q47528283</td>
-      <td>cimetière communal d'Ornans</td>
-      <td>1</td>
-      <td>Point(6.147487 47.102437)</td>
-    </tr>
-    <tr>
-      <th>14</th>
-      <td>http://www.wikidata.org/entity/Q76801752</td>
-      <td>cimetière du Mont-Valérien</td>
-      <td>1</td>
-      <td>Point(2.21596 48.87237)</td>
-    </tr>
-    <tr>
-      <th>15</th>
-      <td>http://www.wikidata.org/entity/Q83191638</td>
-      <td>cimetière de Denicé</td>
-      <td>1</td>
-      <td>Point(4.64405 46.00142)</td>
-    </tr>
-    <tr>
-      <th>16</th>
-      <td>http://www.wikidata.org/entity/Q110334415</td>
-      <td>cimetière de Vierzon (rue Etienne Nivet )</td>
-      <td>1</td>
-      <td>Point(2.0743 47.2228)</td>
-    </tr>
-    <tr>
-      <th>17</th>
-      <td>http://www.wikidata.org/entity/Q372937</td>
-      <td>cimetière parisien de Saint-Ouen</td>
-      <td>1</td>
-      <td>Point(2.3475 48.9075)</td>
-    </tr>
-    <tr>
-      <th>18</th>
-      <td>http://www.wikidata.org/entity/Q2655037</td>
-      <td>cimetière des Batignolles</td>
-      <td>1</td>
-      <td>Point(2.316666666 48.897777777)</td>
-    </tr>
-    <tr>
-      <th>19</th>
-      <td>http://www.wikidata.org/entity/Q2972509</td>
-      <td>cimetière de Bercy</td>
-      <td>1</td>
-      <td>Point(2.39764 48.8328)</td>
-    </tr>
-    <tr>
-      <th>20</th>
-      <td>http://www.wikidata.org/entity/Q15411497</td>
-      <td>cimetière de la Villette</td>
-      <td>1</td>
-      <td>Point(2.38889 48.8846)</td>
-    </tr>
-  </tbody>
-</table>
 </div>
 
 </div>
@@ -14903,9 +14766,8 @@ lieu où le corps du sujet est conservé</p>
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>Todo : afficher la carte</p>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput  celltag_sparql" data-mime-type="text/markdown">
+<h2 id="Cimeti%C3%A8re-du-P%C3%A8re-la-Chaise">Cimeti&#232;re du P&#232;re la Chaise<a class="anchor-link" href="#Cimeti%C3%A8re-du-P%C3%A8re-la-Chaise">&#182;</a></h2><p>Cartes des tombes de communard·e·s ou de personnes ayant un lien avec la Commune dans le cimetière du Père-Lahaise (Q311).</p>
 
 </div>
 </div>
@@ -14915,8 +14777,65 @@ lieu où le corps du sujet est conservé</p>
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput  celltag_sparql" data-mime-type="text/markdown">
+<div class="highlight"><pre><span></span><span class="c">#defaultView:Map</span>
+<span class="k">SELECT</span> <span class="k">Distinct</span> <span class="nv">?tombe</span> <span class="nv">?tombeLabel</span> <span class="nv">?image_Tombe</span> <span class="nv">?coordonnées</span> <span class="nv">?tombe_deLabel</span> <span class="nv">?image_personne</span> <span class="k">WHERE</span> <span class="p">{</span>
+  <span class="k">SERVICE</span> <span class="nn">wikibase</span><span class="p">:</span><span class="nt">label</span> <span class="p">{</span> <span class="nn">bd</span><span class="p">:</span><span class="nt">serviceParam</span> <span class="nn">wikibase</span><span class="p">:</span><span class="nt">language</span> <span class="s">&quot;[AUTO_LANGUAGE],en&quot;</span><span class="p">.</span> <span class="p">}</span>
+
+  <span class="c">#Qui, les communard-e-s</span>
+  <span class="nv">?communard</span> <span class="nn">wdt</span><span class="p">:</span><span class="nt">P106</span> <span class="nn">wd</span><span class="p">:</span><span class="nt">Q1780490</span><span class="p">;</span>
+             <span class="nn">wdt</span><span class="p">:</span><span class="nt">P119</span> <span class="nn">wd</span><span class="p">:</span><span class="nt">Q311</span><span class="p">.</span>
+
+  <span class="c">#Chercher les tombes du cimetière montparnasse                      </span>
+  <span class="nv">?tombe</span> <span class="nn">wdt</span><span class="p">:</span><span class="nt">P276</span> <span class="nv">?lieu</span><span class="p">;</span>
+         <span class="nn">wdt</span><span class="p">:</span><span class="nt">P547</span> <span class="nv">?tombe_de</span><span class="p">.</span> 
+
+  <span class="nv">?lieu</span> <span class="nn">wdt</span><span class="p">:</span><span class="nt">P361</span> <span class="nn">wd</span><span class="p">:</span><span class="nt">Q311</span><span class="p">.</span>
+
+  <span class="c">#Prendre les tombes voulues</span>
+  <span class="k">filter</span> <span class="p">(</span><span class="nv">?tombe_de</span> <span class="o">=</span><span class="nv">?communard</span><span class="p">)</span>
+
+  <span class="k">OPTIONAL</span> <span class="p">{</span><span class="nv">?tombe</span> <span class="nn">wdt</span><span class="p">:</span><span class="nt">P18</span> <span class="nv">?image_Tombe</span><span class="p">.}</span>
+  <span class="k">OPTIONAL</span> <span class="p">{</span><span class="nv">?tombe</span> <span class="nn">wdt</span><span class="p">:</span><span class="nt">P625</span> <span class="nv">?coordonnées</span><span class="p">.}</span>
+  <span class="k">OPTIONAL</span> <span class="p">{</span><span class="nv">?tombe_de</span> <span class="nn">wdt</span><span class="p">:</span><span class="nt">P18</span> <span class="nv">?image_personne</span><span class="p">.}</span>
+
+<span class="p">}</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell  jp-mod-noInput  celltag_sparql">
+
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output " data-mime-type="text/html">
+<iframe style="width: 95%; height: 50vh; border: none;" 
+src="https://query.wikidata.org/embed.html#%23defaultView%3AMap%0ASELECT%20Distinct%20%3Ftombe%20%3FtombeLabel%20%3Fimage_Tombe%20%3Fcoordonn%C3%A9es%20%3Ftombe_deLabel%20%3Fimage_personne%20WHERE%20%7B%0A%20%20SERVICE%20wikibase%3Alabel%20%7B%20bd%3AserviceParam%20wikibase%3Alanguage%20%22%5BAUTO_LANGUAGE%5D%2Cen%22.%20%7D%0A%20%20%0A%20%20%23Qui%2C%20les%20communard-e-s%0A%20%20%3Fcommunard%20wdt%3AP106%20wd%3AQ1780490%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20wdt%3AP119%20wd%3AQ311.%0A%0A%20%20%23Chercher%20les%20tombes%20du%20cimeti%C3%A8re%20montparnasse%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%0A%20%20%3Ftombe%20wdt%3AP276%20%3Flieu%3B%0A%20%20%20%20%20%20%20%20%20wdt%3AP547%20%3Ftombe_de.%20%0A%20%20%0A%20%20%3Flieu%20wdt%3AP361%20wd%3AQ311.%0A%20%20%20%20%20%20%20%20%0A%20%20%23Prendre%20les%20tombes%20voulues%0A%20%20filter%20(%3Ftombe_de%20%3D%3Fcommunard)%0A%20%20%0A%20%20OPTIONAL%20%7B%3Ftombe%20wdt%3AP18%20%3Fimage_Tombe.%7D%0A%20%20OPTIONAL%20%7B%3Ftombe%20wdt%3AP625%20%3Fcoordonn%C3%A9es.%7D%0A%20%20OPTIONAL%20%7B%3Ftombe_de%20wdt%3AP18%20%3Fimage_personne.%7D%0A%20%20%0A%7D%0A"referrerpolicy="origin" 
+sandbox="allow-scripts allow-same-origin allow-popups">
+</iframe>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h2 id="Licence">Licence<a class="anchor-link" href="#Licence">&#182;</a></h2><p>Ce travail est sous licence libre plus précisement Creative Commons Attribution - Partage dans les Mêmes Conditions 4.0 International.</p>
 <p>Il est fait à partir de données libres (diverse licence) et logiciels ou formats libres.
 Citons python, notebook, makedon, mediawiki...
@@ -14929,21 +14848,7 @@ Par principe, la licence vous autorise à utiliser ce travail sans m'en informer
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span> 
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs jp-mod-noInput ">
 
 </div>
 </body>
